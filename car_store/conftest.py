@@ -1,14 +1,9 @@
 import pytest
-
-from car_store.users.models import User
-from car_store.users.tests.factories import UserFactory
+from car_store.store.factories import CarFactory
 
 
-@pytest.fixture(autouse=True)
-def media_storage(settings, tmpdir):
-    settings.MEDIA_ROOT = tmpdir.strpath
-
-
-@pytest.fixture
-def user() -> User:
-    return UserFactory()
+@pytest.fixture()
+@pytest.mark.django_db
+def cars():
+    for i in range(100):
+        CarFactory()
