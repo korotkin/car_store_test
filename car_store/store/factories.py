@@ -1,14 +1,12 @@
 from datetime import datetime
 
 import factory
-from django.utils.text import slugify
 from factory.django import DjangoModelFactory
 
 from car_store.store.models import Car, CarMake, CarModel, CarSubmodel
 
 
 class CarMakeFactory(DjangoModelFactory):
-    id = factory.LazyAttribute(lambda o: slugify(o.name))
     name = factory.Sequence(lambda n: "make {}".format(n))
     active = True
     created_at = factory.LazyAttribute(lambda x: datetime.now())
@@ -19,7 +17,6 @@ class CarMakeFactory(DjangoModelFactory):
 
 
 class CarModelFactory(DjangoModelFactory):
-    id = factory.LazyAttribute(lambda o: slugify(o.name))
     name = factory.Sequence(lambda n: "model {}".format(n))
     active = True
     make = factory.SubFactory(CarMakeFactory)
@@ -31,7 +28,6 @@ class CarModelFactory(DjangoModelFactory):
 
 
 class CarSubmodelFactory(DjangoModelFactory):
-    id = factory.LazyAttribute(lambda o: slugify(o.name))
     name = factory.Sequence(lambda n: "submodel {}".format(n))
     active = True
     model = factory.SubFactory(CarModelFactory)

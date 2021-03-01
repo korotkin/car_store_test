@@ -97,7 +97,5 @@ class Car(Model):
         CarColor, null=True, blank=True, on_delete=models.SET_NULL
     )
 
-    # TODO:  auto_now_add=True must be returned after loading data
-    created_at = models.DateTimeField()
-    # TODO:  auto_now=True must be returned after loading data
-    updated_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

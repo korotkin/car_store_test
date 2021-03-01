@@ -86,7 +86,6 @@ class TestView(TestCase):
             res.json(),
             {
                 "mileage": ["Ensure this value is greater than or equal to 0."],
-                "price": ["This field is required."],
                 "make": [
                     "Select a valid choice. That choice is not one of the available choices."
                 ],
