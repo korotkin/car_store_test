@@ -1,13 +1,12 @@
 from typing import Any
 
-from django.db.models.expressions import F
 from django.db.models.query import QuerySet
 from django.http.request import HttpRequest
-from django.http.response import JsonResponse, HttpResponse
+from django.http.response import HttpResponse, JsonResponse
 from django.views.generic.list import ListView
 
-from car_store.store.forms import CarSearchForm, CarModelForm
-from car_store.store.models import CarSubmodel, Car, CarMake, CarModel
+from car_store.store.forms import CarModelForm, CarSearchForm
+from car_store.store.models import Car, CarMake, CarModel, CarSubmodel
 
 
 class SubmodelList(ListView):

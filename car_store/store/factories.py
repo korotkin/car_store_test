@@ -1,9 +1,10 @@
 from datetime import datetime
+
 import factory
 from django.utils.text import slugify
 from factory.django import DjangoModelFactory
 
-from car_store.store.models import CarMake, CarModel, CarSubmodel, Car
+from car_store.store.models import Car, CarMake, CarModel, CarSubmodel
 
 
 class CarMakeFactory(DjangoModelFactory):

@@ -1,9 +1,6 @@
 from django.urls import path
 
-from car_store.store.views import (
-    submodule_list_view,
-    car_list_view,
-)
+from car_store.store.views import car_list_view, submodule_list_view
 
 app_name = "users"
 urlpatterns = [

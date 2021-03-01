@@ -1,5 +1,3 @@
-import json
-
 import pytest
 from django.test import TestCase
 from django.urls import reverse
@@ -11,7 +9,7 @@ from car_store.store.factories import (
     CarModelFactory,
     CarSubmodelFactory,
 )
-from car_store.store.models import CarSubmodel, Car, CarMake, CarModel
+from car_store.store.models import Car, CarMake, CarModel, CarSubmodel
 
 pytestmark = pytest.mark.django_db
 
