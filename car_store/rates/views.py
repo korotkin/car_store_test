@@ -38,6 +38,10 @@ class RateConvertlList(View):
                 return JsonResponse(
                     {"error": "Unsupurted currency"}, safe=False, status=400
                 )
+            except Exception:
+                return JsonResponse(
+                    {"error": "Server unavailable"}, safe=False, status=400
+                )
 
             data = {
                 "value": value,
