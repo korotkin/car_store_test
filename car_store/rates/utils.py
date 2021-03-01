@@ -23,6 +23,10 @@ class ConvertAPI:
     client = None
     data = None
 
+    # Were don't know - exact update interval for the current time.
+    # So, we're must operate minimum fame size
+    refresh_time = 300
+
     def __init__(self):
         """
         get cached request. refresh if outdated
@@ -47,12 +51,12 @@ class ConvertAPI:
             raise NonWorkingTime()
 
         date_diff = arrow.now() - arrow.get(data["Timestamp"])
-        return date_diff.total_seconds() < 900
+        return date_diff.total_seconds() < self.refresh_time
 
     def update_currency(self):
         res = self.client.get(RATES_DAILY_URL)
         data = res.json()
-        cache.set("currency", data, 900)
+        cache.set("currency", data, self.refresh_time)
         return data
 
     def convert(self, amount, initial, target) -> float:
