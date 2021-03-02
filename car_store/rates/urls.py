@@ -1,6 +1,5 @@
 from django.urls import path
 
-
 from car_store.rates.views import rate_convert_list_view
 
 app_name = "users"

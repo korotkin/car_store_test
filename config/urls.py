@@ -4,7 +4,6 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views import defaults as default_views
 
-
 urlpatterns = [
     path("api/v1/rates/", include("car_store.rates.urls", "v1-store")),
     path(settings.ADMIN_URL, admin.site.urls),

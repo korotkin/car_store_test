@@ -6,7 +6,6 @@ pytestmark = pytest.mark.django_db
 
 
 class TestView(TestCase):
-
     def test_rates_convert_success(self):
         url = reverse("v1-store:rate_convert-list")
         data = {
@@ -17,7 +16,12 @@ class TestView(TestCase):
         res = self.client.post(url, data)
         self.assertEqual(res.status_code, 200)
         data = res.json()
-        self.assertListEqual(list(data.keys()), ["value", ])
+        self.assertListEqual(
+            list(data.keys()),
+            [
+                "value",
+            ],
+        )
 
     def test_rates_convert_form_fail(self):
         url = reverse("v1-store:rate_convert-list")
@@ -40,7 +44,6 @@ class TestView(TestCase):
         res = self.client.post(url, data)
         self.assertEqual(res.status_code, 400)
         data = res.json()
-
 
     # Request in unworking time
 

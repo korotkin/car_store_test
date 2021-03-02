@@ -1,8 +1,8 @@
 from datetime import time
 
+import arrow
 import requests
 from django.core.cache import cache
-import arrow
 
 RATES_DAILY_URL = "https://www.cbr-xml-daily.ru/daily_json.js"
 
@@ -73,3 +73,6 @@ class ConvertAPI:
         except KeyError:
             raise UnsupportedCurrencyException()
         return amount / initial_rate * target_rate
+
+    def get_data(self):
+        return self.data

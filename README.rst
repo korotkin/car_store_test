@@ -87,3 +87,29 @@ See detailed `cookiecutter-django Docker documentation`_.
 
 
 
+
+
+API
+--------
+
+Subscribshion at the frontend side::
+
+    socket = new WebSocket("ws://" + window.location.host + "/ws/rates/");
+    socket.onmessage = function(e) {
+        // receive rates asynchronously
+        let data = JSON.parse(e.data).message
+        console.log(data);
+        //
+        // ... code
+        //
+    }
+    socket.onopen = function() {
+        // receive rates at page load
+        socket.send({"command": "get_rates"});
+    }
+    // Call onopen directly if socket is already open
+    if (socket.readyState == WebSocket.OPEN) socket.onopen();
+
+    Requires additional cron job. Every 5 minutes from 9 to 23:59
+
+    $ ./manage.py send_rates

@@ -3,17 +3,19 @@ from typing import Any
 from django.db.models.expressions import F
 from django.db.models.query import QuerySet
 from django.http.request import HttpRequest
-from django.http.response import JsonResponse, HttpResponse
+from django.http.response import HttpResponse, JsonResponse
 from django.views.generic.base import View
 from django.views.generic.list import ListView
 
 from car_store.rates.forms import ExchangeRequestForm
-from car_store.rates.utils import NonWorkingTime, ConvertAPI, \
-    UnsupportedCurrencyException
+from car_store.rates.utils import (
+    ConvertAPI,
+    NonWorkingTime,
+    UnsupportedCurrencyException,
+)
 
 
 class RateConvertlList(View):
-
     def post(self, request, *args, **kwargs) -> JsonResponse:
         """
         # Part 1.

@@ -15,4 +15,14 @@ django-allauth==0.44.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==1.11.1  # https://github.com/django-crispy-forms/django-crispy-forms
 django-redis==4.12.1  # https://github.com/jazzband/django-redis
 
-arrow==1.2.0  # https://github.com/arrow-py/arrow
+arrow==0.17.0  # https://github.com/arrow-py/arrow
+
+
+# https://channels.readthedocs.io/en/stable/introduction.html
+# https://docs.djangoproject.com/en/3.1/howto/deployment/asgi/uvicorn/
+channels==3.0.3
+channels_redis==3.2.0
+gunicorn==20.0.4
+uvicorn==0.13.4
+uvloop==0.15.2
+httptools==0.1.1
